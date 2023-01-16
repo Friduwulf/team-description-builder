@@ -9,3 +9,7 @@
 .hero {
     margin-bottom: 1rem;
 }
+
+.card {
+    box-shadow: 0.1rem 0.2rem 10px 2px  #c0bfbf;
+}
