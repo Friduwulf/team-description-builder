@@ -9,12 +9,14 @@
     <script src="https://kit.fontawesome.com/5695aaf63b.js" crossorigin="anonymous"></script>
   </head>
   <body>
-  <section class="hero is-primary is-small is-danger">
-    <div class="hero-body has-text-centered">
-      <h1 class="title is-size-1">
-        Your Team!
-      </h1>
-    </div>
-  </section>
+    <section class="hero is-primary is-small is-danger">
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-size-1">
+          Your Team!
+        </h1>
+      </div>
+    </section>
 
-  <section class="columns is-multiline is-centered">
+    <section class="columns is-multiline is-centered">
+    </section>
+  </body>

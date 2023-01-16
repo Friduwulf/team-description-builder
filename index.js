@@ -5,6 +5,8 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const { rejects } = require("assert");
+const { resolve } = require("path");
 
 const employeeTeam = [];
 
@@ -74,6 +76,7 @@ const newManager = () => {
         } else {
             console.log(employeeTeam);
             createTeamPage();
+            topHTML();
             return response;
         }
     })
@@ -176,11 +179,22 @@ const internCard = () => {
 };
 
 const createTeamPage = () => {
-    fs.writeFile('myteam.html', 'testHTML', function(err) {
+    fs.writeFile('myteam.html', '', function(err) {
         if(err) throw err;
         console.log('New Team Created!');
     });
 };
 
+const topHTML = () => {
+    fs.readFile('./HTMLTemplates/top.txt', 'utf8', (err, data) => {
+        if (err) {
+            throw err;
+        }
+        fs.appendFile('./myteam.html', data, function(err) {
+            if (err) throw err;
+            console.log('Created');
+        });
+    });
+};
 //Initiate the application
 newManager();
