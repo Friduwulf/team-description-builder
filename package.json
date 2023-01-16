@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bulma": "^0.9.4",
     "inquirer": "^8.2.4"
   },
   "name": "team-description-builder",

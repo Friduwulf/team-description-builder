@@ -74,6 +74,7 @@ const newManager = () => {
         } else {
             console.log(employeeTeam);
             console.log(response);
+            createTeamPage();
             return response;
         }
     })
@@ -116,6 +117,7 @@ const newIntern = () => {
         } else {
             console.log(response);
             console.log(employeeTeam);
+            createTeamPage();
             return response;
         }
     }) 
@@ -158,9 +160,18 @@ const newEngineer = () => {
         } else {
             console.log(employeeTeam);
             console.log(response);
+            createTeamPage();
             return response;
         }
     }) 
 };
+
+const createTeamPage = () => {
+    fs.writeFile('myteam.html', 'Test Text', function(err) {
+        if(err) throw err;
+        console.log('New Team Created!');
+    });
+};
+
 //Initiate the application
 newManager();

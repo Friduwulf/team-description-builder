@@ -1,0 +1,11 @@
+
+.box {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: rgb(163, 163, 163);
+    margin-bottom: 0;
+}
+
+.hero {
+    margin-bottom: 1rem;
+}
