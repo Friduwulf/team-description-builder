@@ -163,8 +163,20 @@ const newEngineer = () => {
     }) 
 };
 
+const managerCard = () => {
+
+};
+
+const engineerCard = () => {
+
+};
+
+const internCard = () => {
+
+};
+
 const createTeamPage = () => {
-    fs.writeFile('myteam.html', 'Test Text', function(err) {
+    fs.writeFile('myteam.html', 'testHTML', function(err) {
         if(err) throw err;
         console.log('New Team Created!');
     });
