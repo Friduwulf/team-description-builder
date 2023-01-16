@@ -5,8 +5,11 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const { rejects } = require("assert");
-const { resolve } = require("path");
+const { create } = require("domain");
+
+const managerIcon = 'fa-people-roof';
+const engineerIcon = 'fa-gear';
+const internIcon = 'fa-graduation-cap';
 
 const employeeTeam = [];
 
@@ -76,7 +79,6 @@ const newManager = () => {
         } else {
             console.log(employeeTeam);
             createTeamPage();
-            topHTML();
             return response;
         }
     })
@@ -166,23 +168,14 @@ const newEngineer = () => {
     }) 
 };
 
-const managerCard = () => {
-
-};
-
-const engineerCard = () => {
-
-};
-
-const internCard = () => {
-
-};
-
 const createTeamPage = () => {
     fs.writeFile('myteam.html', '', function(err) {
         if(err) throw err;
         console.log('New Team Created!');
     });
+    topHTML();
+    createCards();
+    bottomHTML();
 };
 
 const topHTML = () => {
@@ -196,5 +189,58 @@ const topHTML = () => {
         });
     });
 };
+
+const cardHTML = () => {
+    fs.readFile('./HTMLTemplates/card.txt', 'utf8', (err, data) => {
+        if(err) {
+            throw err;
+        }
+        fs.appendFile('myteam.html', data, function(err) {
+            console.log('Added Card');
+        });
+    });
+};
+
+const bottomHTML = () => {
+    fs.readFile('./HTMLTemplates/bottom.txt', 'utf8', (err, data) => {
+        if(err) {
+            throw err;
+        }
+        fs.appendFile('myteam.html', data, function(err) {
+            console.log('Finished Page');
+        });
+    });
+};
+
+const createCards = () => {
+    employeeTeam.forEach(function(employee) {
+        const role = employee.getRole();
+        if(role === 'Manager') {
+            createManagerCard();
+        } 
+        if(role === 'Intern') {
+            createInternCard();
+        } 
+        if(role === 'Engineer') {
+            createEngineerCard();
+        };
+    });
+};
+
+const createManagerCard = () => {
+    console.log('This is a manager');
+    cardHTML();
+};
+
+const createEngineerCard = () => {
+    console.log(`This is an engineer`);
+    cardHTML();
+};
+
+const createInternCard = () => {
+    console.log('This is an intern');
+    cardHTML();
+};
+
 //Initiate the application
 newManager();

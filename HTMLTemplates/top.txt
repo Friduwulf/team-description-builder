@@ -18,5 +18,3 @@
     </section>
 
     <section class="columns is-multiline is-centered">
-    </section>
-  </body>
