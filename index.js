@@ -46,7 +46,7 @@ const newManager = () => {
         },
         {
             type:"input",
-            name:"ID",
+            name:"id",
             message:"What is the manager's employee ID?",
         },
         {
@@ -67,13 +67,12 @@ const newManager = () => {
     ])
     .then((response) => {
         response.role = 'Manager';
-        employeeTeam.push(response);
+        const manager = new Manager(response.name, response.email, response.id, response.officeNumber);
+        employeeTeam.push(manager);
         if(response.moreEmployees === true) {
-            console.log(response);
             newEmployee();
         } else {
             console.log(employeeTeam);
-            console.log(response);
             createTeamPage();
             return response;
         }
@@ -89,7 +88,7 @@ const newIntern = () => {
         },
         {
             type:"input",
-            name:"ID",
+            name:"id",
             message:"What is the intern's employee ID?",
         },
         {
@@ -110,12 +109,11 @@ const newIntern = () => {
     ])
     .then((response) => {
         response.role = 'Intern';
-        employeeTeam.push(response);
+        const intern = new Intern(response.name, response.id, response.email, response.school);
+        employeeTeam.push(intern);
         if(response.moreEmployees === true) {
-            console.log(response);
             newEmployee();
         } else {
-            console.log(response);
             console.log(employeeTeam);
             createTeamPage();
             return response;
@@ -132,7 +130,7 @@ const newEngineer = () => {
         },
         {
             type:"input",
-            name:"ID",
+            name:"id",
             message:"What is the engineer's employee ID?",
         },
         {
@@ -153,13 +151,12 @@ const newEngineer = () => {
     ])
     .then((response) => {
         response.role = 'Engineer';
-        employeeTeam.push(response);
+        const engineer = new Engineer(response.name, response.id, response.email, response.github);
+        employeeTeam.push(engineer);
         if(response.moreEmployees === true) {
-            console.log(response);
             newEmployee();
         } else {
             console.log(employeeTeam);
-            console.log(response);
             createTeamPage();
             return response;
         }
