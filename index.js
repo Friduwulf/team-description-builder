@@ -9,6 +9,8 @@ const Intern = require("./lib/Intern");
 const employeeTeam = [];
 
 // const generateHTML = require("./src/generateHTML");
+
+//Function to a run inquirer and select a new employee to build
 const newEmployee = () => {
     return inquirer.prompt([
         {
@@ -32,6 +34,7 @@ const newEmployee = () => {
         }
     })
 };
+//Function to build a new manager at the start of the application
 const newManager = () => {
     console.log("-------------Welcome to team building bot 9000!-------------")
     console.log("Lets begin building your team. Lets start with your manager!")
@@ -75,6 +78,7 @@ const newManager = () => {
         }
     })
 };
+//function to build a new Intern
 const newIntern = () => {
     return inquirer.prompt([
         {
@@ -116,6 +120,7 @@ const newIntern = () => {
         }
     }) 
 };
+//Function to build a new Engineer
 const newEngineer = () => {
     return inquirer.prompt([
         {
@@ -157,5 +162,5 @@ const newEngineer = () => {
         }
     }) 
 };
-
+//Initiate the application
 newManager();
