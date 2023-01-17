@@ -251,7 +251,7 @@ const createCards = () => {
                                 <strong>Employee ID:</strong> ${employee.employeeID}
                             </li>
                             <li class="box is-shadowless has-text-centered">
-                                <strong>Github:</strong> <a href="http://github.com/${employee.employeeGithub}">${employee.employeeGithub}</a>
+                                <strong>Github:</strong> <a href="http://github.com/${employee.employeeGithub}" target="_blank">${employee.employeeGithub}</a>
                             </li>
                         </ul>
                     </div>
